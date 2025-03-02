@@ -32,13 +32,24 @@ const Header = () => {
               <Nav.Link as={NavLink} to="/">
                 Home
               </Nav.Link>
-              <Nav.Link href="#link">Categories</Nav.Link>
-              <Nav.Link href="#link">About</Nav.Link>
+
+              <Nav.Link href="#link" as={NavLink} to="/categories">
+                Categories
+              </Nav.Link>
+
+              <Nav.Link href="#link" as={NavLink} to="/about">
+                About
+              </Nav.Link>
             </Nav>
 
             <Nav>
-              <Nav.Link href="#home">Login</Nav.Link>
-              <Nav.Link href="#link">Register</Nav.Link>
+              <Nav.Link href="#home" as={NavLink} to={"/login"}>
+                Login
+              </Nav.Link>
+
+              <Nav.Link href="#link" as={NavLink} to={"Register"}>
+                Register
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
