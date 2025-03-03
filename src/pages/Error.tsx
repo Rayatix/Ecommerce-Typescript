@@ -1,8 +1,20 @@
 import { Container } from "react-bootstrap";
+import { Link, useRouteError, isRouteErrorResponse } from "react-router-dom";
 import "/public/styles/404.css";
-import { Link } from "react-router-dom";
 
 const Error = () => {
+  const error = useRouteError();
+  let errorStatus: number;
+  let errorStatusText: string;
+
+  if (isRouteErrorResponse(error)) {
+    errorStatus = error.status;
+    errorStatusText = error.statusText;
+  } else {
+    errorStatus = 404;
+    errorStatusText = "Page Not Found";
+  }
+
   return (
     <Container>
       <div id="oopss">
@@ -12,13 +24,9 @@ const Error = () => {
             alt="404"
           />
 
-          <span>404 PAGE</span>
+          <span>{errorStatus}</span>
 
-          <p className="p-a">
-            . The page you were looking for could not be found
-          </p>
-
-          <p className="p-b">... Back to previous page</p>
+          <p className="p-a">{errorStatusText}</p>
 
           <Link to="/" replace={true} className="back">
             ... Back to previous page
