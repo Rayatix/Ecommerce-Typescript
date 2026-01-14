@@ -1,0 +1,75 @@
+.active {
+    text-decoration: underline;
+}
+
+
+/* For Error Page */
+.error-box {
+  background: #000;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-family: "Bangers", cursive;
+  position: relative;
+}
+
+.error-box::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100vh;
+    background: #000;
+    right: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.error-box button {
+  background: #0dcaf0;
+  border: 10px #000 solid;
+  color: #000;
+  width: 200px;
+  height: 60px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
+  top: 100px;
+  cursor: pointer;
+  font-family: "Bangers", cursive;
+  transition: all 0.2s ease;
+  letter-spacing: 1px;
+}
+
+.error-box button:hover {
+  background: #17bbd8;
+  color: #FFF;
+  border: none;
+  transition: all 0.2s ease;
+  border-radius: 5px;
+}
+
+.error-box {
+    text-align: center;
+}
+
+.error-box .caution-tape {
+  font-size: 6rem;
+  width: 100%;
+  background: #0dcaf0;
+  height: 250px;
+  position: relative;
+  top: 50%;
+  transform: translateY(50%);
+  display: flex;
+  justify-content: center;
+align-items: center;
+}
+
+.error-box .problem-text {
+  color: #0dcaf0;
+  position: relative;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  margin-top: 100px;
+}
