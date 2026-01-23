@@ -1,21 +1,34 @@
-import { Link } from "react-router-dom"
+import { Link, useRouteError, isRouteErrorResponse } from "react-router-dom";
 
 const Error = () => {
+  const error = useRouteError();
+
+  let errorStatus: number;
+  let errorStatusText: string;
+
+  if (isRouteErrorResponse(error)) {
+    errorStatus = error.status;
+    errorStatusText = error.statusText;
+  } else {
+    errorStatus = 404;
+    errorStatusText = "Page not found";
+  }
+
   return (
     <div className="error-box">
-        <div className="caution-tape">
-            <p>Page not found</p>
-        </div>
+      <div className="caution-tape">
+        {/* <h1>{errorStatus}</h1> */}
+        {/* <p>{errorStatusText}</p> */}
+        <p>{errorStatusText}</p>
+      </div>
 
-        <Link to="/" replace={true}>
-            <button type="button" name="back">Go back</button>
-        </Link>
+      <Link to="/" replace>
+        <button type="button">Go back</button>
+      </Link>
 
-                <p className="problem-text">
-                    Oops. Something went wrong.
-                </p>
+      <p className="problem-text">{errorStatus}</p>
     </div>
-  )
-}
+  );
+};
 
-export default Error
+export default Error;
